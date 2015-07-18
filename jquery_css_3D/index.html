@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  onselectstart="return false">
 <head>
     <meta charset="UTF-8">
     <title>3D的窗口切换</title>
@@ -7,42 +7,91 @@
         <!--css初始化-->
         *{padding: 0;margin: 0;font-family: "Microsoft Yahei";font-size:14px}
         ul li {list-style: none}
-        body{background:#000;}
-                
-        div.pic{transform:rotateX(-40px);width:133px;height:200px;border:1px solid red;margin: 200px auto 0px;transform: rotateX(-10deg); transform-style: preserve-3d;}
-        div.pic img{position: absolute;perspective:1500px;border-radius: 5px;box-shadow: 0px 0px 15px #fff}
+        body{background:#000;}        
+        div.pic{
+            
+            position: relative; 
+            width:120px;
+            height:180px;
+            margin: 200px auto 0px;
+            transform: perspective(800px)  rotateX(-10deg) rotateY(0deg);
+            transform-style: preserve-3d;
+           
+            }
+        div.pic img{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px #fff;
+            -webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%) ;  
+            /*会不兼容的*/
+            
+            }
+          div.pic p {
+              width:1200px;
+              height: 1200px;
+              background: -webkit-radial-gradient(center center, 600px 600px,rgba(255,255,255,0.3), rgba(0,0,0,0));
+              position: absolute;
+              top: 100%;
+              left: 50%;
+              margin-top: -600px;
+              margin-left: -600px;
+              transform: rotateX(90deg);      
+              border-radius: 600px;
+              
+          }
     </style>
 </head>
 <body >
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"> </script>
     <script type="text/javascript">
        
-        $(function(){
-        	
-         var deg=360/$('div.pic img').size();
-         var roY=0; 
+        $(function(){	
+          var deg=360/$('div.pic img').size(); //动态的获取img的个数，算出旋转度数  
+          var roY=0 ,roX=-10;
+          var xN=0;yN=0; 
          $('div.pic img').each(function(i){
-           $(this).css('transform','rotateY('+i*deg+'deg) translatez(400px)')
-           $(this).attr('ondragstart','return false')
+           $(this).css({'transform':'rotateY('+i*deg+'deg) translatez(350px)'}); //进行位移和旋转  
+           $(this).attr('ondragstart','return false');  //禁用图片拖拽 
     })
            
          $(document).mousedown(function(ev){
              var x_=ev.clientX;
              var y_=ev.clientY;
-             $(this).bind('mousemove',function(ev){
+             var play=setInterval(function(){});
+             clearInterval(play);
+             $(this).bind('mousemove',function(ev){  //当鼠标按下是绑定mousemove事件      
                  var x=ev.clientX;
                  var y=ev.clientY;
-                 var xN=x-x_;
-                 roY=xoY+xN;
-                 $(document.body).append('<div style="width:10px;height:10px;background:#fff;position:absolute;left:;top:'+y+'px;"></div>')
-                 
+                   xN=x-x_;
+                   yN=y-y_;
+                   roY+=xN*0.2;
+                   roX-=yN*0.1; 
                  $('div.pic').css({
-                     'transform':'perspective(800px) rotateX(-15deg) rotateY'
+                    'transform':'perspective(800px) rotateX('+roX+'deg) rotateY('+roY+'deg) '
                      
                  })
+               // $(document.body).append('<div style="width:5px;height:5px;background:#fff;position:absolute;left:'+x+'px;top:'+y+'px;"></div>');
+                    x_= ev.clientX;
+                    y_=ev.clientY;
+                    
+                 
              })
            }).mouseup(function(){
-              $(this).unbind("mouseover");                  
+              $(this).unbind("mousemove");          //当鼠标抬起的时候取消绑定mousemove时间         
+           var play=setInterval(function(){
+               xN*=0.95;
+               yN*=0.95;
+               
+               if (Math.abs(xN)<1&&Math.abs(yN)<1){
+                   clearInterval(play);
+               }
+               roY+=xN*0.2;
+               roX-=yN*0.1;
+               $('div.pic').css({'transform':'perspective(800px) rotateX('+roX+'deg) rotateY('+roY+'deg) '});
+           },30)
+           
            })
         
         })
@@ -62,6 +111,7 @@
         <img src="img/9.jpg">
         <img src="img/10.jpg">
         <img src="img/11.jpg">
+        <p></p>
     </div>
 </body>
 </html>
