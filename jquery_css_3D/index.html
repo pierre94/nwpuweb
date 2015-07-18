@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D的窗口切换</title>
+    <style>
+        <!--css初始化-->
+        *{padding: 0;margin: 0;font-family: "Microsoft Yahei";font-size:14px}
+        ul li {list-style: none}
+        body{background:#000;}
+                
+        div.pic{transform:rotateX(-40px);width:133px;height:200px;border:1px solid red;margin: 200px auto 0px;transform: rotateX(-10deg); transform-style: preserve-3d;}
+        div.pic img{position: absolute;perspective:1500px;border-radius: 5px;box-shadow: 0px 0px 15px #fff}
+    </style>
+</head>
+<body >
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"> </script>
+    <script type="text/javascript">
+       
+        $(function(){
+        	
+         var deg=360/$('div.pic img').size();
+         var roY=0; 
+         $('div.pic img').each(function(i){
+           $(this).css('transform','rotateY('+i*deg+'deg) translatez(400px)')
+           $(this).attr('ondragstart','return false')
+    })
+           
+         $(document).mousedown(function(ev){
+             var x_=ev.clientX;
+             var y_=ev.clientY;
+             $(this).bind('mousemove',function(ev){
+                 var x=ev.clientX;
+                 var y=ev.clientY;
+                 var xN=x-x_;
+                 roY=xoY+xN;
+                 $(document.body).append('<div style="width:10px;height:10px;background:#fff;position:absolute;left:;top:'+y+'px;"></div>')
+                 
+                 $('div.pic').css({
+                     'transform':'perspective(800px) rotateX(-15deg) rotateY'
+                     
+                 })
+             })
+           }).mouseup(function(){
+              $(this).unbind("mouseover");                  
+           })
+        
+        })
+        
+   
+        
+    </script>     
+    <div class="pic">
+        <img src="img/1.jpg">
+        <img src="img/2.jpg" >
+        <img src="img/3.jpg">
+        <img src="img/4.jpg">
+        <img src="img/5.jpg">
+        <img src="img/6.jpg">
+        <img src="img/7.jpg">
+        <img src="img/8.jpg">
+        <img src="img/9.jpg">
+        <img src="img/10.jpg">
+        <img src="img/11.jpg">
+    </div>
+</body>
+</html>
