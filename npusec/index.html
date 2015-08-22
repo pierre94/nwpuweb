@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />   
@@ -11,18 +11,314 @@
 		 *{padding:0;margin:0;font-size: 14px; font-family: "Microsoft yahei";font-weight: normal}
 		 ul {list-style: none;}
 		 a{text-decoration:none;background-color:rgba(0,0,0,0);display:block;}
-		 /**/
-	  .outer{width:100%;background:url(./image/field1.jpg);height:200px;background-position: center; }
-	  	 
-	 </style>
+		 /*header start*/
+         headder{width: 100%;position: relative;}
+	  .outer {width: 100%;height: 626px; background: url(image/field1.jpg) repeat-x 50% 0,url(image/field2.jpg) repeat-x 50% 154px,url(image/field3.jpg) repeat-x 50% 386px;margin :0 auto;position:relative;overflow: hidden }
+         .leader{width:960px;margin: 0 auto;overflow: hidden;position: relative;height:250px;}
+         .logobox{background:url(image/logo-ribbon.png) no-repeat 50% 0 ; width: 268px; height:298px;margin:0 auto;margin-top: -60px;transition: margin-top 0.1s;overflow: hidden;z-index:100;position: relative;cursor:pointer}
+         .logobox img { width:120px;height: 120px;margin:70px auto; display: block}
+         .logobox span{color:#6CDFFF;text-align: center;letter-spacing:2px;display: block;margin-top:-50px ;}
+         .logobox:hover{margin-top: -40px}
+      
+        /* leadermenu start      */
+         
+         .leadermenu{width: 100%;
+           position: absolute;
+           top:0;
+           height: 189px;
+           z-index:0;
+           cursor: pointer
+           }
+         .leadermenu ul li{
+           width:120px;
+           height:100%;
+           background: url(./image/nav-ribbon.png) no-repeat 0 -189px;
+           position:absolute;
+           top:0;
+           text-align: center;
+           transition:all 0.5s;
+           -moz-transition:all 0.5 ; 
+           -webkit-transition: all 0.5s; 
+           -o-transition:all 0.5s ; 
+           }
+         ul li a{
+           width:100%;
+           height:100%;
+           display: block;
+           color:#fff;
+           text-align: center; }
+         .leadermenu ul li a span {
+           width: 100%;
+           display: block; 
+           padding-top:95px;
+           transition:all 0.2s;
+           -moz-transition:all 0.2 ; 
+           -webkit-transition: all 0.2s; 
+           -o-transition:all 0.2s ; 
+           }
+          .leadermenu ul li.wooyun a  span{
+            background: url(./image/nav-icons.png) no-repeat 0px -15px;
+          }
+          .leadermenu ul li.wooyun a  span:hover{
+            background: url(./image/nav-icons.png) no-repeat -120px -15px;
+          }
+          .leader ul li.freebuf a  span{
+            background: url(./image/nav-icons.png) no-repeat 0px -145px;
+          }
+          .leader ul li.freebuf a  span:hover{
+            background: url(./image/nav-icons.png) no-repeat -120px -145px;
+          }
+         .leader ul li.tools a span{
+            background: url(./image/nav-icons.png) no-repeat 0px -275px;
+         }
+         .leader ul li.tools a span:hover{
+            background: url(./image/nav-icons.png) no-repeat -120px -275px;
+         }
+         .leader ul li.freebuf a  span{
+            background: url(./image/nav-icons.png) no-repeat 0px -145px;
+          }
+          .leader ul li.freebuf a  span:hover{
+            background: url(./image/nav-icons.png) no-repeat -120px -145px;
+          }
+         .leader ul li.bugscan a span{
+            background: url(./image/nav-icons.png) no-repeat 0px -405px;
+         }
+         .leader ul li.bugscan a span:hover{
+            background: url(./image/nav-icons.png) no-repeat -120px -405px;
+         }
+         .leader ul li.loudongyanjiu a span{
+            background: url(./image/nav-icons.png) no-repeat 0px -530px;
+         }
+         .leader ul li.loudongyanjiu a span:hover{
+            background: url(./image/nav-icons.png) no-repeat -120px -530px;
+         }
+         .leader ul li.butian a span{
+            background: url(./image/nav-icons.png) no-repeat 0px -663px;
+         }
+         .leader ul li.butian a span:hover{
+            background: url(./image/nav-icons.png) no-repeat -120px -663px;
+         }
+         .leadermenu ul li:hover{
+           background-position: 0  0;
+         }
+         .bannerleader{
+           width:80px ;  
+           position: absolute;
+           top:250px;
+           left: 50%;
+           margin-left:-40px;
+         }
+         .bannerleader span{
+           display: inline-block;
+           width:13px; 
+           height: 13px;
+           margin: 0 1px;
+           background: url(./image/bannerleader_bg.png);
+           cursor: pointer; 
+           overflow: hidden; 
+         }
+
+        .banner{
+          width:960px ; 
+          z-index: 99;
+          margin:  30px auto; 
+          position: relative;
+         
+        }
+        .banner  .left{
+          display: block;
+          width: 52px; 
+          height: 101px; 
+          background: url(./image/banner_left.png);
+          position: absolute;
+          top:59px; 
+          left:-190px;
+          cursor: pointer; 
+        }
+        .banner  .right{
+          display: block;
+          width: 52px; 
+          height: 101px; 
+          background: url(./image/banner_right.png);
+          position: absolute;
+          top:59px; 
+          right:-190px;
+          cursor: pointer; 
+        }
+         .banner ul .control:hover{
+          background-position: 0 -101px;          
+        }
+        .banner ul  .banner1{
+          position: absolute;
+          width: 960px ; 
+          height: 260px;
+          background: url(./image/banner1.png) no-repeat center;
+        }
+        .banner ul  .banner2{
+          position: absolute;
+           left:200%;
+          width: 960px ; 
+          height: 260px;
+          background: url(./image/banner2.png) no-repeat center;
+        }
+        .banner ul  .banner3{
+          position: absolute;
+          left:200%;
+          width: 960px ; 
+          height: 260px;
+          background: url(./image/banner3.png) no-repeat center;
+        }
+        .banner ul  .banner4{
+          position: absolute;
+          left:200%;
+          width: 960px ; 
+          height: 220px;
+          background: url(./image/banner4.png) no-repeat center;
+        }
+        .banner_show{
+          left:0%;
+        }
+        .btn{
+          background: url(./image/button.png) no-repeat -1px 0px;
+          cursor: pointer;
+          display: block;
+          width:145px; 
+          height: 43px;
+          text-align: center;
+          line-height: 43px ;
+          color:#fff; 
+          position: absolute;
+          top:240px;
+          left:400px; 
+          text-shadow: 1px 2px 2px #000;
+        }
+        .btn:hover{
+          background-position: 0 -56px;
+          color:#14B1DE;
+          
+        }
+    </style>
+	    
+    
+    <script>
+       $(function(){
+         var index=0;
+         function show(index){
+          $('.bannerleader span').eq(index).css({"background-position":"0 -26px"}).siblings().css({"background-position":"0px 0px"}); 
+          $('.banner ul li').css({"left":"200%"});
+          $('.banner ul li').eq(index).animate({"left":"0%"},500).siblings().animate({"left":"-200%"},500);
+   
+         }
+     
+       $('.banner .right').click(function(){
+         index++;
+         if(index==4){index=0};
+         show(index);
+         
+       })          
+       $('.banner .left').click(function(){
+         index--;
+         if(index==-1){index=3};
+         show(index);
+         
+       })          
+      $('.bannerleader span').click(function(){
+        var index=$(this).index();
+        show(index);
+      })
+      $('.bannerleader span').hover(function(){
+        if($(this).index()!=index){
+          $(this).css({"background-position":"0 -13px"}); 
+        }
+    },function(){
+      if($(this).index()!=index ){
+        $(this).css({"background-position":"0 0"});
+      }
+        
+    })
+      //定时自动轮播  
+    var timer=setInterval(function(){
+        index=(index==3) ? 0:index+1;
+        show(index);
+      },3000)
+
+})
+         
+       
+     </script>  
 </head> 
 <body>
+	<header>
 	  <div class="outer">
-		  <div class="inner">
-		    <div class="header"> 
-			      
-		     </div>
-		  </div>
+	      <div class="leader">
+	          <div class="logobox">
+	              <a href="index.html" > <img src="image/npusec_logo.png" alt="西北工业大学信息安全协会logo">
+	              <span>NWPU SECURITY TEAM</span>
+	              </a>
+	          </div>
+	          <nav class="leadermenu">
+	              <ul>
+	                  <li class="wooyun" style="left:0px">   
+	                   <a href="http://www.wooyun.org" target="_blank">
+                       <span><strong style="font-size:1.2em">乌云</strong><p style="color:#6BDFFF">WooYun.org</p></span>
+                     </a>
+	                  </li>
+	                  <li class="freebuf" style="left:120px">
+                      <a href="http://www.freebuf.com/" target="_blank">
+                       <span ><strong style="font-size:1.2em">freebuf</strong><p style="color:#6BDFFF">Freebuf.com</p></span>
+                     </a>
+                    </li>
+	                  <li class="tools"   style="left:240px">
+                      <a href="https://www.t00ls.net/" target="_blank">
+                       <span  ><strong style="font-size:1.2em">T00LS</strong><p style="color:#6BDFFF">t00ls.net</p></span>
+                     </a>
+                    </li>
+	                  <li class="bugscan" style="right:240px">
+                      <a href="http://www.bugscan.net" target="_blank">
+                       <span ><strong style="font-size:1.2em">bugscan</strong><p style="color:#6BDFFF">bugscan.net</p></span>
+                     </a>
+                    </li>
+	                  <li class="loudongyanjiu" style="right:120px">
+                      <a href="http://www.91ri.org"  target="_blank">
+                       <span  ><strong style="font-size:1.2em">漏洞研究</strong><p style="color:#6BDFFF">91ri.org</p></span>
+                     </a>
+                    </li>
+	                  <li class="butian" style="right:0px">
+                      <a href="https://butian.360.cn/" target="_blank">
+                       <span><strong style="font-size:1.2em">补天</strong><p style="color:#6BDFFF">butian.360.cn</p></span>
+                     </a>
+                    </li>
+	              </ul>
+	          </nav>
+	      </div>
+         <div class="bannerleader">
+               <span style="background-position:0 -26px"></span>
+               <span class="bannerleader_show"></span>
+               <span></span>
+               <span></span>
+         </div>
+         <div class="banner">
+            
+                <nav class="left  control"></nav>
+                <nav class="right control"></nav>
+               <ul>
+                 <li class="banner1">
+                   <div class="btn" href="#">JOIN IN OURS</div>
+                 </li>
+                 <li class="banner2">
+                   <div class="btn" href="#">JOIN IN OURS</div>
+                 </li>
+                 <li class="banner3">
+                   <div class="btn" herf="#">JOIN IN OURS</div>
+                 </li>
+                 <li class="banner4">
+                   <div class="btn" href="#">JOIN IN OURS</div>
+                 </li>
+               </ul>
+         </div>
 	  </div>
+	  </header>
+    
+   
 </body>
 </html>
