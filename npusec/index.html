@@ -9,7 +9,10 @@
      <style>
 		 /*重置css样式*/
 		 *{padding:0;margin:0;font-size: 14px; font-family: "Microsoft yahei";font-weight: normal}
-		 ul {list-style: none;}
+		  ::selection{
+       background: red;
+     } 
+         ul {list-style: none;}
 		 a{text-decoration:none;background-color:rgba(0,0,0,0);display:block;}
 		 /*header start*/
          headder{width: 100%;position: relative;}
@@ -197,6 +200,82 @@
           color:#14B1DE;
           
         }
+        .nav_2{
+          width:100%; 
+          height: 50px;
+          position: relative;
+          background: #333;
+          margin-top:-20px; 
+          clear: both;
+          z-index: 100;
+          
+        }
+         .nav_2 ul, .nav_2 ul li{
+           width: 100%;
+           height: 50px;
+           text-align: center;
+           color:#aaa;
+         }
+         .nav_2 ul li a{
+           color: #aaa;
+         }
+         .nav_2 ul li{
+             
+            float: left;
+            width: 80px;
+            line-height: 50px; 
+         }
+         .nav_2 ul li.first{
+           width: 180px;
+          line-height: 50px;
+         font-weight: bold;
+         cursor: pointer;
+         }
+         .nav_2 ul li.active a{
+             background: #111;
+             color: aliceblue;
+         }
+         .nav_2 ul li:hover a{
+             background: #111;
+             color: aliceblue;
+         }
+         .nav_2 ul li.first:hover{
+              color: aliceblue;
+         }
+         .nav_2 ul li.last{
+             float: right;
+             margin-right:200px;
+             height: 50px;
+             width: auto;
+         }
+         
+       .inputBox{
+             border:0; 
+             height: 30px;
+             width: 145px;
+             margin-top:10px;
+             margin-bottom: 10px;
+             background:#1a1a1a;
+             border-radius: 50px;
+             line-height: 50px;
+             box-shadow: 2px 1px 0px rgba(0,0,0,.2) inset;
+             color:aliceblue;
+         }
+         .nav_2 ul li input{ 
+           border: 0;
+           height: 28px;
+           margin: 1px 0 ;
+           line-height: 30px;
+           background: #1a1a1a;
+           width: 100px;
+           outline: none;
+           color: aliceblue;
+         }
+         .nav_2 ul li span{
+            cursor: pointer;
+           line-height: 30px;
+           color:#ccc;
+         }
     </style>
 	    
     
@@ -241,7 +320,19 @@
         index=(index==3) ? 0:index+1;
         show(index);
       },3000)
-
+     
+    //输入框，focus样式  
+    $('.nav_2 ul li input').focus(function(){
+     $(".inputBox").animate({"width":"195px"},600);
+     $(this).animate({"width":"150px"},600);
+    })
+    //输入框blur效果   
+    $(".nav_2 ul li input").blur(function(){
+     $(".inputBox").animate({"width":"145px"},600);
+     $(this).animate({"width":"100px"},600);
+    })
+    
+    
 })
          
        
@@ -318,7 +409,22 @@
          </div>
 	  </div>
 	  </header>
-    
-   
+    <diV class="nav_2">
+      <ul>
+          <li class="first">root@Nwpusec.org:~#</li>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Bbs</a></li>
+          <li><a href="#">Study</a></li>
+          <li><a href="#">Member</a></li>
+          <li><a href="#">CTF</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Share</a></li>
+          <li><a href="#">Studio</a></li>
+          <li class="last"><div class="inputBox"><input type="text" ><span>搜索</span></div></li>
+      </ul>
+    </diV>
+    <div style="height:1000px">
+        
+    </div>
 </body>
 </html>
