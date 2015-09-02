@@ -276,9 +276,14 @@
            line-height: 30px;
            color:#ccc;
          }
+         .nav_2_fixed{
+           display: none;
+           position: fixed;
+           top:20px;
+           z-index: 300;
+         }
     </style>
-	    
-    
+
     <script>
        $(function(){
          var index=0;
@@ -333,6 +338,21 @@
     })
     
     
+    // 窗口滚动事件,变换导航栏  
+    
+    $(window).scroll(function(){
+         var nav_2_scrollHeight=$('.nav_2_scroll').offset().top;
+         var nav_2_fixedHeight=$('.nav_2_fixed').offset().top;
+         if(nav_2_fixedHeight>nav_2_scrollHeight){
+            $('.nav_2_fixed').css({"display":"block"});
+         }else{
+            $('.nav_2_fixed').css({"display":"none"});
+         }
+    })
+    
+    // 
+    
+    
 })
          
        
@@ -340,6 +360,20 @@
 </head> 
 <body>
 	<header>
+     <diV class="nav_2 nav_2_fixed">
+      <ul>
+          <li class="first">root@Nwpusec.org:~#</li>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Bbs</a></li>
+          <li><a href="#">Study</a></li>
+          <li><a href="#">Member</a></li>
+          <li><a href="#">CTF</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Share</a></li>
+          <li><a href="#">Studio</a></li>
+          <li class="last"><div class="inputBox"><input type="text" ><span>搜索</span></div></li>
+      </ul>
+    </diV>
 	  <div class="outer">
 	      <div class="leader">
 	          <div class="logobox">
@@ -409,7 +443,7 @@
          </div>
 	  </div>
 	  </header>
-    <diV class="nav_2">
+    <diV class="nav_2 nav_2_scroll">
       <ul>
           <li class="first">root@Nwpusec.org:~#</li>
           <li class="active"><a href="#">Home</a></li>
@@ -423,8 +457,9 @@
           <li class="last"><div class="inputBox"><input type="text" ><span>搜索</span></div></li>
       </ul>
     </diV>
+    
     <div style="height:1000px">
-        
+    
     </div>
 </body>
 </html>
